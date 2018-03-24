@@ -86,8 +86,15 @@ public class SingleLinkageAlgorithm {
 		double minDistance = 999999.0;
 		for (int i = 0; i < cluster1.getLength(); i++) {
 			for (int j = 0; j < cluster2.getLength(); j++) {
-				if (minDistance > distances[cluster1.getElementsAt(i)][cluster2.getElementsAt(j)]) {
-					minDistance = distances[cluster1.getElementsAt(i)][cluster2.getElementsAt(j)];
+				int index1 = cluster1.getElementsAt(i);
+				int index2 = cluster2.getElementsAt(j);
+				if (index2 < index1)
+				{
+					index1 = cluster2.getElementsAt(j);
+					index2 = cluster1.getElementsAt(i);
+				}
+				if (minDistance > distances[index1][index2]) {
+					minDistance = distances[index1][index2];
 				}
 			}
 		}
