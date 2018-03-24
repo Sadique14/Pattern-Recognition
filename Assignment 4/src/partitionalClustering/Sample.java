@@ -1,5 +1,10 @@
-package hierarchicalClustering;
-
+package partitionalClustering;
+/**
+ * Pattern Recognition Laboratory
+ * 
+ * @author Md. Farhan Sadique
+ * Student ID: 130238
+ */
 public class Sample {
 
 	double x;
@@ -20,4 +25,5 @@ public class Sample {
 	public void setY(double y) {
 		this.y = y;
 	}
+	
 }

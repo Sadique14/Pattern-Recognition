@@ -17,14 +17,14 @@ public class SingleLinkageAlgorithm {
 	//main algorithm
 	public void clustering() {
 		double[][] distances = new double[numOfSamples][numOfSamples];
-		//calculating euclidean distances
+		// calculating euclidean distances
 		for (int i = 0; i < numOfSamples; i++) {
 			for (int j = 0; j < numOfSamples; j++) { 
 				if (j > i) {
 					distances[i][j] = Math.sqrt(Math.pow((samples[i].getX() - samples[j].getX()), 2) + Math.pow((samples[i].getY() - samples[j].getY()), 2));
 				}
 				else {
-					distances[i][j] = 99999;
+					distances[i][j] = Double.MAX_VALUE;
 				}
 			}
 		}
@@ -37,7 +37,7 @@ public class SingleLinkageAlgorithm {
 		int numOfClusters = numOfSamples;
 		double[][] tempDistances = distances;
 		System.out.println("\nSingle-Linkage Algorithm");
-		
+
 		while(true) {
 			//printing current clusters
 			System.out.println("\nStep "+((numOfSamples - numOfClusters) + 1));

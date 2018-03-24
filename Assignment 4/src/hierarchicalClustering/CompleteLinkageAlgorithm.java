@@ -24,7 +24,7 @@ public class CompleteLinkageAlgorithm {
 					distances[i][j] = Math.sqrt(Math.pow((samples[i].getX() - samples[j].getX()), 2) + Math.pow((samples[i].getY() - samples[j].getY()), 2));
 				}
 				else {
-					distances[i][j] = 99999;
+					distances[i][j] = Double.MAX_VALUE;
 				}
 			}
 		}
@@ -36,8 +36,8 @@ public class CompleteLinkageAlgorithm {
 		}
 		int numOfClusters = numOfSamples;
 		double[][] tempDistances = distances;
-		System.out.println("\nSingle-Linkage Algorithm");
-		
+		System.out.println("\nComplete-Linkage Algorithm");
+
 		while(true) {
 			//printing current clusters
 			System.out.println("\nStep "+((numOfSamples - numOfClusters) + 1));

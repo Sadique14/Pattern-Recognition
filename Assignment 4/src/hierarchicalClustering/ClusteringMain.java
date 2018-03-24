@@ -1,5 +1,4 @@
 package hierarchicalClustering;
-
 import java.io.File;
 import java.util.Scanner;
 /**
@@ -9,7 +8,6 @@ import java.util.Scanner;
  * Student ID: 130238
  */
 public class ClusteringMain {
-
 	public static void main(String[] args) {
 		File file = new File("samples.txt");
 		try {
@@ -20,13 +18,12 @@ public class ClusteringMain {
 				samples[i] = new Sample(scanner.nextDouble(), scanner.nextDouble());
 			}
 			scanner.close();
-			
 			System.out.println("Hierarchical Clustering");
 			System.out.println(".......................");
 			System.out.println("Enter 1: Single-Linkage Algorithm");
 			System.out.println("Enter 2: Complete-Linkage Algorithm");
-			System.out.println("Enter 3: Single-Linkage Algorithm");
-			System.out.println("Enter 4: Single-Linkage Algorithm");
+			System.out.println("Enter 3: Average-Linkage Algorithm");
+			System.out.println("Enter 4: Ward's Method");
 			Scanner scanner2 = new Scanner(System.in);
 			int flag = scanner2.nextInt();
 			scanner2.close();
@@ -37,6 +34,14 @@ public class ClusteringMain {
 			else if(flag == 2) {
 				CompleteLinkageAlgorithm completeLinkageAlgorithm = new CompleteLinkageAlgorithm(samples, numOfSamples);
 				completeLinkageAlgorithm.clustering();
+			}
+			else if(flag == 3) {
+				AverageLinkageAlgorithm averageLinkageAlgorithm = new AverageLinkageAlgorithm(samples, numOfSamples);
+				averageLinkageAlgorithm.clustering();
+			}
+			else if(flag == 4) {
+				WardMethod wardMethod = new WardMethod(samples, numOfSamples);
+				wardMethod.clustering();
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
