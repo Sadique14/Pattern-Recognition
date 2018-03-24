@@ -86,8 +86,15 @@ public class CompleteLinkageAlgorithm {
 		double maxDistance = -1;
 		for (int i = 0; i < cluster1.getLength(); i++) {
 			for (int j = 0; j < cluster2.getLength(); j++) {
-				if (maxDistance < distances[cluster1.getElementsAt(i)][cluster2.getElementsAt(j)]) {
-					maxDistance = distances[cluster1.getElementsAt(i)][cluster2.getElementsAt(j)];
+				int index1 = cluster1.getElementsAt(i);
+				int index2 = cluster2.getElementsAt(j);
+				if (index2 < index1)
+				{
+					index1 = cluster2.getElementsAt(j);
+					index2 = cluster1.getElementsAt(i);
+				}
+				if (maxDistance < distances[index1][index2]) {
+					maxDistance = distances[index1][index2];
 				}
 			}
 		}
